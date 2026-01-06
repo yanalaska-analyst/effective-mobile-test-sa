@@ -1,10 +1,16 @@
 ```mermaid
 flowchart LR
-    App[Мобильное приложение] -->|Отправка push‑токена| Backend[Backend магазина]
-    Backend -->|События: корзина, заказ, маркетинг| Queue[(Очередь событий)]
-    Queue --> Notification[Сервис уведомлений]
-    Notification -->|Push payload| FCM[FCM / APNs]
-    FCM -->|Push| App
-    App -.->|Тап по пушу| Screens["Экраны приложения (корзина, заказ, промо)"]
+CartService[Корзина]
+    OrderService[Заказы]
+    MailingService[Рассылки]
+    Broker[Брокер сообщений]
+    NotificationService[Сервис нотификаций]
+    MobileApp[Мобильное приложение]
 
+    CartService --> Broker
+    OrderService --> Broker
+    MailingService --> Broker
+
+    Broker --> NotificationService
+    NotificationService --> MobileApp
 ```
