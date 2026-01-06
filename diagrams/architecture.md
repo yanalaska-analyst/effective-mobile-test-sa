@@ -1,5 +1,5 @@
 ```mermaid
-flowchart LR
+flowchart TD
 CartService[Корзина]
     OrderService[Заказы]
     MailingService[Рассылки]
