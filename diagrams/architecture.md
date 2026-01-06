@@ -1,6 +1,6 @@
 ```mermaid
-flowchart TD
-CartService[Корзина]
+flowchart LR
+    CartService[Корзина]
     OrderService[Заказы]
     MailingService[Рассылки]
     Broker[Брокер сообщений]
@@ -10,7 +10,7 @@ CartService[Корзина]
     CartService --> Broker
     OrderService --> Broker
     MailingService --> Broker
-
     Broker --> NotificationService
     NotificationService --> MobileApp
+
 ```
